@@ -42,11 +42,11 @@ app.get("/", async (request, response) => {
 // CREATE NEW BOOK API
 app.post("/create-books", async (request, response) => {
   
-  const { title, description, price, cover, author, inStock } = request.body;
+  const { title, description, price, cover, author} = request.body;
 
   const queryToAddNewBook = `
-  INSERT INTO books(title, description, cover, price, author, inStock)
-  VALUES ('${title}', '${description}',  '${cover}', '${price}', '${author}', '${inStock}');`;
+  INSERT INTO books(title, description, cover, price, author)
+  VALUES ('${title}', '${description}',  '${cover}', '${price}', '${author}');`;
   
   await database.run(queryToAddNewBook);
   response.send("Book Created Successfully!!");

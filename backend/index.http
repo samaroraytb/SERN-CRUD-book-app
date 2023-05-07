@@ -10,6 +10,5 @@ Content-Type: application/json
   "description": "The Country is surrounded by the Bay of Bengal in the east",
   "cover": "https://m.media-amazon.com/images/I/710E3pCnQKL.jpg",
   "price": 200,
-  "author": "LG Arora",
-  "inStock": true
+  "author": "LG Arora"
 }

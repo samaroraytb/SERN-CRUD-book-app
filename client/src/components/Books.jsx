@@ -8,7 +8,7 @@ const Books = () => {
     const fetchAllBooks = async() => {
       try{
         const response = await axios.get("http://localhost:3000/")
-        console.log(response)
+        updateBooks(response.data)
       }catch(error){
         console.log(error)
       }
@@ -16,8 +16,12 @@ const Books = () => {
     fetchAllBooks()
   }, [])
 
+  const isDataAvailable = booksData.length > 0
+  
   return (
-    <div>books</div>
+    <div className='text-2xl p-5 flex flex-col items-center'>
+      {isDataAvailable ? (<div>Data Available </div>) : (<div>No Data Available</div>)}
+    </div>
   )
 }
 

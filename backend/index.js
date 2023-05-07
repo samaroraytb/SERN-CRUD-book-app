@@ -22,7 +22,7 @@ const initializationDatabaseAndServer = async () => {
       filename: databasePath,
       driver: sqlite3.Database,
     })
-    app.listen(3000, console.log("Server is Running on http://localhost:5173/"))
+    app.listen(3000, console.log("Server is Running on http://localhost:3000/"))
   }catch(error){
     console.log(`Server Error: ${error.message}`);
     process.exit(1);
@@ -38,4 +38,17 @@ app.get("/", async (request, response) => {
   const displayAllBooks = await database.all(queryToDisplayAllBooks);
   response.send(displayAllBooks)
 })
+
+// CREATE NEW BOOK API
+app.post("/create-books", async (request, response) => {
+  
+  const { title, description, price, cover, author, inStock } = request.body;
+
+  const queryToAddNewBook = `
+  INSERT INTO books(title, description, cover, price, author, inStock)
+  VALUES ('${title}', '${description}',  '${cover}', '${price}', '${author}', '${inStock}');`;
+  
+  await database.run(queryToAddNewBook);
+  response.send("Book Created Successfully!!");
+});
 

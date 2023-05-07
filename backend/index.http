@@ -1,2 +1,15 @@
 ### API 1
-GET http://localhost:5173/
+GET http://localhost:3000/
+
+### New Book Creation
+POST http://localhost:3000/create-books
+Content-Type: application/json
+
+{
+  "title": "THE INDIA",
+  "description": "The Country is surrounded by the Bay of Bengal in the east",
+  "cover": "https://m.media-amazon.com/images/I/710E3pCnQKL.jpg",
+  "price": 200,
+  "author": "LG Arora",
+  "inStock": true
+}
